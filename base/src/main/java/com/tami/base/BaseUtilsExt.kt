@@ -13,7 +13,7 @@ fun Context.raw2string(@RawRes rawResId: Int): String {
     return try {
         val inputStream: InputStream = resources.openRawResource(rawResId)
         val b = ByteArray(inputStream.available())
-        inputStream.use { it.read() }
+        inputStream.use { it.read(b) }
         return String(b)
     } catch (e: Exception) {
         ""
